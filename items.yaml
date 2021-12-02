@@ -44,3 +44,13 @@ items:
                     - branchSpec:
                         name: '*/main'
                 lightweight: true
+                properties:
+                - envVars: {}
+                - kubernetesFolderProperty: {}
+                - itemRestrictions:
+                    allowedTypes:
+                    - org.jenkinsci.plugins.workflow.job.WorkflowJob
+                    - hudson.model.FreeStyleProject
+                    - jenkins.branch.OrganizationFolder
+                    - org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject
+                    filter: true
