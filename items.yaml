@@ -5,16 +5,16 @@ items:
 - kind: folder
   displayName: controller-jobs
   name: controller-jobs
+  description: ''
   items:
-  - kind: organizationFolder
-    displayName: cbci-casc-automation
-    name: cbci-casc-automation
-    orphanedItemStrategy:
+  - orphanedItemStrategy:
       defaultOrphanedItemStrategy:
         pruneDeadBranches: true
         daysToKeep: -1
         numToKeep: -1
-    SCMSources:
+    kind: organizationFolder
+    displayName: cbci-casc-automation
+    name: cbci-casc-automation
     navigators:
     - github:
         apiUri: https://api.github.com
@@ -44,13 +44,18 @@ items:
                     - branchSpec:
                         name: '*/main'
                 lightweight: true
-                properties:
-                - envVars: {}
-                - kubernetesFolderProperty: {}
-                - itemRestrictions:
-                    allowedTypes:
-                    - org.jenkinsci.plugins.workflow.job.WorkflowJob
-                    - hudson.model.FreeStyleProject
-                    - jenkins.branch.OrganizationFolder
-                    - org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject
-                    filter: true
+    trigger:
+      periodicFolderTrigger:
+        interval: 1d
+    strategy:
+      allBranchesSame: {}
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  - itemRestrictions:
+      allowedTypes:
+      - org.jenkinsci.plugins.workflow.job.WorkflowJob
+      - hudson.model.FreeStyleProject
+      - jenkins.branch.OrganizationFolder
+      - org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject
+      filter: true
