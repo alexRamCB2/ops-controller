@@ -1,5 +1,5 @@
 apiVersion: "1"
-version: "1"
+version: "2"
 id: "alexRamCB2-ops-controller"
 description: "CloudBees CI configuration bundle for the alexRamCB2 ops-controller Controller"
 availabilityPattern: "cloudbees-ci-casc-workshop/alexramcb2/ops-controller"
